@@ -1,6 +1,0 @@
-C:\Users\Stas>docker system df
-TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
-Images          1         1         103.8kB   103.8kB (100%)
-Containers      2         0         8.192kB   8.192kB (100%)
-Local Volumes   7         0         257MB     257MB (100%)
-Build Cache     0         0         0B        0B
