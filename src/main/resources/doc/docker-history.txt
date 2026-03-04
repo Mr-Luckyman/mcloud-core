@@ -1,0 +1,4 @@
+C:\Users\Stas>docker history hello-world
+IMAGE          CREATED        CREATED BY                SIZE      COMMENT
+ef54e839ef54   6 months ago   CMD ["/hello"]            0B        buildkit.dockerfile.v0
+<missing>      6 months ago   COPY hello / # buildkit   16.4kB    buildkit.dockerfile.v0

@@ -1,0 +1,4 @@
+C:\Users\Stas>docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+4aea496cbaaf   hello-world   "/hello"   8 minutes ago    Exited (0) 8 minutes ago              beautiful_proskuriakova
+01d9e1a9e6e3   hello-world   "/hello"   15 minutes ago   Exited (0) 15 minutes ago             hopeful_hugle
