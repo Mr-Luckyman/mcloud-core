@@ -1,0 +1,4 @@
+C:\Users\Stas>docker images
+
+IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest   ef54e839ef54       25.9kB         9.52kB    U
