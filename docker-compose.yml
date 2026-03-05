@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  calculator:
+    build:
+      context: .
+      dockerfile: Dockerfile.calculator
+    image: calculator:v1.0
+    container_name: mcloud-calculator
+    stdin_open: true
+    tty: true
+
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.webserver
+    image: webserver:v1.0
+    container_name: mcloud-webserver
+    ports:
+      - "8080:8080"
+  game:
+    build:
+      context: .
+      dockerfile: Dockerfile.game
+    image: game:v1.0
+    stdin_open: true
+    tty: true
+
+  analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile.analyzer
+    image: analyzer:v1.0
