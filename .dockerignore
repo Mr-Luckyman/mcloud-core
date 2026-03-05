@@ -1,14 +1,47 @@
-# .dockerignore
+# Системы контроля версий
 .git
 .gitignore
-README.md
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Логи и временные файлы
 *.log
-.idea
-.vscode
+*.tmp
+*.pid
+*.lock
+*.hprof
+
+# Документация
+README.md
+*.md
+
+# Папки сборки
 build/
 target/
-*.class
+out/
+
+# Gradle
 gradle/
 gradlew
 gradlew.bat
-*.iml
+.gradle/
+
+# Docker файлы
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+
+# Спринг Boot специфичные
+application*.properties
+application*.yml
+heap-dump*.hprof
+
+# Ресурсы
+src/test/
+test/

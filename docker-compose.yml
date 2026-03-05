@@ -31,3 +31,21 @@ services:
       context: .
       dockerfile: Dockerfile.analyzer
     image: analyzer:v1.0
+
+  spring-optimization:
+    build:
+      context: .
+      dockerfile: src/main/java/ru/mentee/power/spring/Dockerfile.original
+    image: spring-boot:fat
+    container_name: mcloud-spring-fat
+    ports:
+      - "8081:8081"
+
+  spring-optimized:
+    build:
+      context: .
+      dockerfile: src/main/java/ru/mentee/power/spring/Dockerfile.optimized
+    image: spring-boot:slim
+    container_name: mcloud-spring-slim
+    ports:
+      - "8082:8082"

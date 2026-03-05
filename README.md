@@ -1,6 +1,7 @@
 # Docker Основы - Mentee Power Course
 
 ### Student: Stas
+
 ## Docker образы для Java приложений
 
 ### Описание проекта
@@ -142,6 +143,32 @@ docker-compose run analyzer "один два два три три три"
 три: 3
 два: 2
 один: 1
+```
+
+## Оптимизация Spring Boot Docker образа
+
+### Сравнение размеров
+
+| Образ                                 | Размер | Экономия       |
+|---------------------------------------|--------|----------------|
+| `spring-boot:fat` (оригинальный)      | 1.33GB | -              |
+| `spring-boot:slim` (оптимизированный) | 325MB  | **~1GB (77%)** |
+
+## Сборка образов
+
+#### Сборка неоптимизированного образа
+```bash
+docker build -f Dockerfile.original -t spring-boot:fat .
+```
+
+#### Сборка оптимизированного образа
+```bash
+docker build -f Dockerfile.optimized -t spring-boot:slim .
+```
+
+#### Проверка размеров
+```bash
+docker images | findstr spring-boot
 ```
 
 ## docker-hello-output
