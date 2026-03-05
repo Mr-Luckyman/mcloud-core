@@ -1,0 +1,7 @@
+# Неоптимизированный Dockerfile
+FROM gradle:8.5-jdk21
+WORKDIR /app
+COPY . .
+RUN gradle bootJar --no-daemon  # ← работает!
+EXPOSE 8081
+CMD ["java", "-jar", "build/libs/app.jar", "--server.port=8081"]
