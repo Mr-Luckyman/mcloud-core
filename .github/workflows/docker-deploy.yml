@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'Dockerfile.optimized'  # Dockerfile
+      - 'src/main/java/ru/mentee/power/spring/Dockerfile.optimized'
       - 'src/main/java/ru/mentee/power/spring/**'
       - 'build.gradle'
       - '.github/workflows/docker-deploy.yml'
@@ -68,7 +68,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: Dockerfile.optimized
+          file: src/main/java/ru/mentee/power/spring/Dockerfile.optimized
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
