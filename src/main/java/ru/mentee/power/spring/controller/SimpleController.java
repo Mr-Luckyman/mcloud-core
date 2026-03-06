@@ -12,4 +12,9 @@ public class SimpleController {
         visitorCount++;
         return String.format("Количество посещений: #%d", visitorCount);
     }
+
+    @GetMapping("/health")
+    public String health() {
+        return "{\"status\":\"UP\"}";
+    }
 }

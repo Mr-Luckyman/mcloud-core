@@ -4,6 +4,52 @@
 
 ## Docker образы для Java приложений
 
+## Deploy в GitHub Container Registry
+
+### URL образа
+
+```bash
+ghcr.io/Mr-Luckyman/mcloud-core:latest
+```
+
+### CI/CD Pipeline
+
+При каждом push в ветку `master` автоматически запускается GitHub Actions workflow, который:
+
+1. Собирает Spring Boot приложение через Gradle
+2. Создает оптимизированный Docker образ
+3. Публикует его в GitHub Container Registry
+
+### Теги образа
+
+| Тег            | Описание                                                     |
+|----------------|--------------------------------------------------------------|
+| `latest`       | Последняя стабильная версия                                  |
+| `master-{SHA}` | Конкретная версия по SHA коммита (например `master-a1b2c3d`) |
+
+### Локальное тестирование образа из registry
+
+1. Скачать образ
+   ```bash
+   docker pull ghcr.io/Mr-Luckyman/mcloud-core:latest
+   ```
+
+2. Запустить контейнер
+   ```bash
+   docker run -d -p 8082:8082 --name mcloud-spring ghcr.io/Mr-Luckyman/mcloud-core:latest
+   ```
+3. Проверить работу
+   ```bash
+   curl http://localhost:8082/health
+   curl http://localhost:8082/
+   ```
+
+4. Остановить и удалить
+   ```bash
+   docker stop mcloud-spring
+   docker rm mcloud-spring
+   ```
+
 ### Описание проекта
 
 Проект содержит несколько Java приложений, упакованных в Docker образы:
@@ -19,6 +65,7 @@
    ```bash
       docker-compose build
    ```
+
 2. Запуск приложений
 
    **Калькулятор**
@@ -157,16 +204,19 @@ docker-compose run analyzer "один два два три три три"
 ## Сборка образов
 
 #### Сборка неоптимизированного образа
+
 ```bash
 docker build -f Dockerfile.original -t spring-boot:fat .
 ```
 
 #### Сборка оптимизированного образа
+
 ```bash
 docker build -f Dockerfile.optimized -t spring-boot:slim .
 ```
 
 #### Проверка размеров
+
 ```bash
 docker images | findstr spring-boot
 ```
