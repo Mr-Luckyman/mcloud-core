@@ -41,7 +41,9 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build with Gradle
-        run: ./gradlew bootJar --no-daemon
+        run: |
+          chmod +x gradlew
+          ./gradlew bootJar --no-daemon
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
